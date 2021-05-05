@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link rel='stylesheet' href='stylesheets/style.css'/>
+    </head>
+    <body>
+
+      <% include cabecera.html %>
+  
+      <h1><%=__('Welcome to {{title}}', {title})%></h1>
+      <div class="image-intro">
+        <img src="/images/<%= imageintro.photo %>" alt="">
+      </div>
+      <div class="resume">
+        <p><%=__('Find whatever you are looking for and sale what you do not use')%></p>
+      </div>
+      
+    </body>
+</html>

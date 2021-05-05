@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link rel='stylesheet' href='./style.css' />
+    </head>
+    <body>
+        <% include cabecera.html %>
+        <div class="wrapper">
+            <div class="title">
+                <p><%= anuncio.name %></p>
+            </div>
+            <div class="container">
+                <div class="product-information">
+                    <div class="product-detail">
+                        <p><%=__('On sale: ')%><%= anuncio.sale %></p>
+                        <p><%=__('Price: ')%><%= anuncio.price %> € </p>
+                        <p><%=__('Location: ')%><%= anuncio.location %>  </p>
+                        <p><%=__('Tags: ')%><%= anuncio.tags %> </p>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="/images/<%= anuncio.photo %>" alt="">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+

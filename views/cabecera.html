@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <header>
+        <div class="header"><a href="/"><%= title %></a></div>
+
+        <div class="language-selector">
+        <% getLocales().forEach(locale => { %>
+            <div class="language-options"><a href='/change-locale/<%= locale %>' ><%= locale %></a></div>
+        <%}) %>
+        </div>
+    </header>
+</html>
+

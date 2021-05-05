@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Bicicleta",
+        "sale": true,
+        "price": 215.30,
+        "location": "Madrid",
+        "photo": "bici.jpg",
+        "tags": [ "lifestyle", "motor"]
+    },
+    {
+        "name": "iPhone",
+        "sale": false,
+        "price": 50.00,
+        "location": "Valencia",
+        "photo": "iphone.jpg",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "Beats",
+        "sale": true,
+        "price": 130.98,
+        "location": "Barcelona",
+        "photo": "headphonebeats.jpg",
+        "tags": [ "lifestyle", "mobile"]
+    },
+    {
+        "name": "Meeting",
+        "sale": true,
+        "price": 10.00,
+        "location": "Madrid",
+        "photo": "meetingroom.jpg",
+        "tags": [ "work", "mobile"]
+    },
+    {
+        "name": "Headphones",
+        "sale": true,
+        "price": 54.00,
+        "location": "Barcelona",
+        "photo": "headphones.jpg",
+        "tags": [ "work", "mobile"]
+    },
+    {
+        "name": "Car",
+        "sale": true,
+        "price": 20000.00,
+        "location": "Madrid",
+        "photo": "car.jpg",
+        "tags": [ "lifestyle", "motor", "work"]
+    }
+]

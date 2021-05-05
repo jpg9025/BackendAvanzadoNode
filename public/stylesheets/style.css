@@ -1,0 +1,114 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightseagreen;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 5rem;
+}
+
+.image-intro {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.image, img {
+  width: 640px;
+  height: 426px;
+}
+
+.resume {
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 2rem;
+}
+
+.header {
+  background-color: rgba(0, 0, 0, 0.781);
+  position: absolute;
+  font-size: 3rem;
+  width: 100%;
+  top: 0;
+  right: 0;
+  color: white;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.language-selector {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+}
+
+.language-options > a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.header > a {
+  text-decoration: none;
+  color: white;
+}
+
+.header > a:hover  {
+  color: lightyellow;
+}
+
+.header > a:active {
+  color: rgba(179, 212, 111, 0.9);
+}
+
+.wrapper {
+  background-color: rgba(245, 245, 245, 0.61);
+  padding: 1rem;
+  margin-top: 1rem;
+  align-content: center;
+}
+
+.title {
+  position: center;
+  width: 99%;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: whitesmoke;
+  padding: 0.1rem;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container {
+  padding: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.product-information {
+  display: flex;
+  flex-direction:column;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 50%;
+}
+
+.product-detail {
+  width: 100%;
+  background-color:rgba(245, 245, 245, 0.212);
+  padding: 2rem;
+  padding-left: 5rem;
+  margin: 1rem;
+  text-align: left;
+  justify-content: center;
+}
+
+.image {
+  display: flex;
+  padding: 0.5rem;
+  width: 50%;
+}
