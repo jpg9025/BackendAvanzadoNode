@@ -9,58 +9,69 @@
     <body>
         <div class="anuncios.header" style="
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         background-color: black;
         color: white; 
+        text-align: center;
         font-size: 1.2rem;
         margin:2rem;
-        padding: 1rem
+        padding: 1rem;
         ">
-            <span><p>Name</p></span>
-            <span><p>Price</p></span>
-            <span><p>On sale</p></span>
-            <span><p>Tags</p></span>
-            <span><p>Location</p></span>
+            <span style="width:10%"><p>Name</p></span>
+            <span style="width:10%"><p>Price</p></span>
+            <span style="width:10%"><p>On sale</p></span>
+            <span style="width:10%"><p>Tags</p></span>
+            <span style="width:10%"><p>Location</p></span>
         </div>
 
         <% resultado.forEach(anuncio => { %>
             <div class="anuncio.wrapper" style="
                 display: flex;
-                justify-content: space-around;
-                background-color: lightseagreen; 
+                justify-content: space-evenly;
+                background-color: lightseagreen;
+                text-align: center; 
                 margin:2rem;
-                padding: 1rem
+                padding: 1rem;
                 ">
 
                 <span class="anuncio.title" style="
                 margin:1rem;
-                padding: 0.5rem">
+                padding: 0.5rem;
+                width: 10%;
+                ">
                     <%= anuncio.name %>
                 </span>
 
                 <span class="anuncio.price" style="
                 font-weight: bold;
                 margin:1rem;
-                padding: 0.5rem
+                padding: 0.5rem;
+                width: 10%;
                 ">
                     <span><%= anuncio.price %> €</span>
                 </span>
 
                 <span style="
                 margin:1rem;
-                padding: 0.5rem">
+                padding: 0.5rem;
+                width: 10%;
+                ">
                     <%= anuncio.sale %>
                 </span>
 
                 <span style="
                 margin:1rem;
-                padding: 0.5rem">
+                padding: 0.5rem;
+                width: 10%;
+                ">
                     <%= anuncio.tags %>
                 </span>
 
                 <span style="
                 margin:1rem;
-                padding: 0.5rem">
+                padding: 0.5rem;
+                width: 10%;
+                ">
                     <%= anuncio.location %>
                 </span>
                 
