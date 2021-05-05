@@ -4,30 +4,33 @@ body {
   background-color: lightseagreen;
 }
 
+/* index - welcome page */
 h1 {
   font-size: 3rem;
   text-align: center;
-  margin: 5rem;
-}
-
-.image-intro {
-  display: flex;
-  justify-content: center;
   margin: 2rem;
 }
 
-.image, img {
-  width: 640px;
-  height: 426px;
+.intro-wrapper {
+  margin: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.image-intro {
+  justify-content: left;
+  margin: 2rem;
 }
 
 .resume {
+  justify-content: right;
   text-align: center;
   margin: 1rem;
   padding: 1rem;
   font-size: 2rem;
 }
 
+/* Header and navigation bar */
 .header {
   background-color: rgba(0, 0, 0, 0.781);
   position: absolute;
@@ -64,6 +67,8 @@ h1 {
   color: rgba(179, 212, 111, 0.9);
 }
 
+
+/* images.htl - detail page */
 .wrapper {
   background-color: rgba(245, 245, 245, 0.61);
   padding: 1rem;
@@ -111,4 +116,9 @@ h1 {
   display: flex;
   padding: 0.5rem;
   width: 50%;
+}
+
+.image, img {
+  width: 640px;
+  height: 426px;
 }

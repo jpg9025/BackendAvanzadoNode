@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <!--<link rel='stylesheet' href='./anuncios-style.css' />-->
+    </head>
+    <body>
+        <div class="anuncios.header" style="
+        display: flex;
+        justify-content: space-around;
+        background-color: black;
+        color: white; 
+        font-size: 1.2rem;
+        margin:2rem;
+        padding: 1rem
+        ">
+            <span><p>Name</p></span>
+            <span><p>Price</p></span>
+            <span><p>On sale</p></span>
+            <span><p>Tags</p></span>
+            <span><p>Location</p></span>
+        </div>
+
+        <% resultado.forEach(anuncio => { %>
+            <div class="anuncio.wrapper" style="
+                display: flex;
+                justify-content: space-around;
+                background-color: lightseagreen; 
+                margin:2rem;
+                padding: 1rem
+                ">
+
+                <span class="anuncio.title" style="
+                margin:1rem;
+                padding: 0.5rem">
+                    <%= anuncio.name %>
+                </span>
+
+                <span class="anuncio.price" style="
+                font-weight: bold;
+                margin:1rem;
+                padding: 0.5rem
+                ">
+                    <span><%= anuncio.price %> €</span>
+                </span>
+
+                <span style="
+                margin:1rem;
+                padding: 0.5rem">
+                    <%= anuncio.sale %>
+                </span>
+
+                <span style="
+                margin:1rem;
+                padding: 0.5rem">
+                    <%= anuncio.tags %>
+                </span>
+
+                <span style="
+                margin:1rem;
+                padding: 0.5rem">
+                    <%= anuncio.location %>
+                </span>
+                
+            </div>
+       <% }) %>
+    </body>
+</html>

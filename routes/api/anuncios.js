@@ -1,11 +1,11 @@
 var express = require('express');
 const { NotExtended } = require('http-errors');
+const { render } = require('../../app.js');
 var router = express.Router();
 
 const Anuncio = require('../../models/Anuncio.js');
 
 /* GET /api/anuncios */
-
 router.get('/', async function(req, res, next) { 
     try {
         const name = req.query.name; // req.query catch information received in url 
@@ -33,11 +33,13 @@ router.get('/', async function(req, res, next) {
         }
 
         const resultado = await Anuncio.lista(filtro, limit, skip, fields, sort);
-        // throw new Error('fallo intencionado, lianta');
-        res.json(resultado);
+        res.locals.resultado = resultado;
+        //res.json(resultado);
+        res.render('anuncios');
     } catch (error) {
         next (error);
     }
+    //res.render('anuncios');
 });
 
 //GET /api/anuncios:id

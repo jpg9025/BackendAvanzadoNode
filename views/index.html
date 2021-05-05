@@ -10,13 +10,18 @@
 
       <% include cabecera.html %>
   
+      <div class="intro-wrapper">
+        <div class="image-intro">
+          <img src="/images/<%= imageintro.photo %>" alt="">
+        </div>
+        <div class="resume">
+          <p><%=__('Find whatever you are looking for and sale what you do not use')%></p>
+          <p><%=__('No commissions')%></p>
+          <p><%=__('Secure shipments with leading logistics companies')%></p>
+        </div>
+      </div>
+
       <h1><%=__('Welcome to {{title}}', {title})%></h1>
-      <div class="image-intro">
-        <img src="/images/<%= imageintro.photo %>" alt="">
-      </div>
-      <div class="resume">
-        <p><%=__('Find whatever you are looking for and sale what you do not use')%></p>
-      </div>
       
     </body>
 </html>
