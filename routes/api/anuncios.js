@@ -16,6 +16,7 @@ router.get('/', async function(req, res, next) {
         const skip = parseInt(req.query.skip);
         const fields = req.query.fields; // http://localhost:3000/api/anuncios?fields=name%20-_id%20price
         const sort = req.query.sort;
+        const photo = req.query.photo;
 
         const filtro = {};
 
@@ -31,7 +32,11 @@ router.get('/', async function(req, res, next) {
         if (location) {
             filtro.location = location
         }
+        if (photo) {
+            filtro.photo = photo
+        }
 
+        
         const resultado = await Anuncio.lista(filtro, limit, skip, fields, sort);
         res.locals.resultado = resultado;
         //res.json(resultado);

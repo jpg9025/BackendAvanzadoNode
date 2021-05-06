@@ -20,7 +20,9 @@ From the browser:
 http://localhost:3000/api/installdb - This route is programmed to drop all data in the collection anuncios and charge the samples
 http://localhost:3000/api/anuncios - Anuncio samples from anuncios.json
 
-
+## Thumbnail creator service - miniature of the pics ##
+- Terminal window -
+npm run thumbnailService
 ### API Methods ###
 
 ## GET api/anuncios ##
@@ -64,6 +66,7 @@ Example: http://localhost:3000/imagenes?image=Beats
 
 From browser url:
 Use postman app, specify the url http://localhost:3000/api/anuncios type of Body and all the parameters
+! File name must be exactly the same as the file pasted into public/images folder. Sensible to lower and upper cases
 
 ## DELETE api/anuncios/:id ##
 From mongo terminal window: 

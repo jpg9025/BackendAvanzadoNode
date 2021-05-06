@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link rel='stylesheet' href='stylesheets/style.css'/>
+    </head>
+    <body>
+        <% include cabecera.html %>
+
+        <form class="form-wrapper" enctype="multipar/form-data" method="POST">
+            <div class="form-option">
+                <label for="name">
+                    <%=__('Name of the item')%>
+                </label>
+                <input type="text" name="name"/>
+            </div>
+        
+            <div class="form-option">
+                <label for="price">
+                    <%=__('Price of the item')%>
+                </label>
+                <input name="price" type="number" min="0">
+            </div>
+
+            <div class="form-option">
+                <label for="sale">
+                    <%=__('Are you selling(select it) of buying(do not select it)')%>
+                </label>
+                <input name="sale" type="radio">
+            </div>
+            
+            <div class="form-option">
+                <label for="location">
+                    <%=__('Location of the item')%>
+                </label>
+                <input name="location" type="text" max="20">
+            </div>
+            
+            <div class="form-option">
+                <label for="tags">
+                    <%=__('Select the tags of the item')%>
+                </label>
+                <select name="tags">
+                    <option value="lifestyle"><%=__('Lifestyle')%></option>
+                    <option value="motor"><%=__('Motor')%></option>
+                    <option value="mobile"><%=__('Mobile')%></option>
+                    <option value="work"><%=__('Work')%></option>
+                </select>
+            </div>
+            
+            <div class="form-image">
+                <label for="photo">
+                    <%=__('Select the file')%>
+                </label>
+                <input name="photo" type="file" accept="image/*">
+            </div>
+
+            <div class="form-submit">
+                <input type="submit" value="submit">
+            </div>
+
+        </form>
+    </body>
+</html>

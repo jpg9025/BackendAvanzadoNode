@@ -7,5 +7,15 @@
 	"Location: ": "Location: ",
 	"Tags: ": "Tags: ",
 	"No commissions": "No commissions",
-	"Secure shipments with leading logistics companies": "Secure shipments with leading logistics companies"
+	"Secure shipments with leading logistics companies": "Secure shipments with leading logistics companies",
+	"Name of the item": "Name of the item",
+	"Select the tags of the item": "Select the tags of the item",
+	"Lifestyle": "Lifestyle",
+	"Motor": "Motor",
+	"Mobile": "Mobile",
+	"Work": "Work",
+	"Price of the item": "Price of the item",
+	"Are you selling(select it) of buying(do not select it)": "Are you selling(select it) of buying(do not select it)",
+	"Location of the item": "Location of the item",
+	"Select the file": "Select the file"
 }

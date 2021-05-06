@@ -41,6 +41,8 @@ app.use('/', require('./routes/index')); // Main page
 app.use('/imagenes', require('./routes/imagenes')); // Images of the anuncios
 app.use('/installdb', require('./public/javascripts/installdb')); // DB initialization
 app.use('/change-locale', require('./routes/change-locale.js')); // Languague selection routes - PLACE ALWAYS AFTER cookieparser
+app.use('/thumbnail', require('./routes/thumbnail.js')); // Thumbnail creator
+app.use('/nuevoanuncio', require('./routes/nuevoanuncio'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

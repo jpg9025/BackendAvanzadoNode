@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "cross-env PORT=3000 NODE_ENV=development DEBUG=expresspop:* nodemon"
+    "dev": "cross-env PORT=3000 NODE_ENV=development DEBUG=expresspop:* nodemon",
+    "thumbnailService": "node ./services/thumbnailCreator.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.4",
+    "cote": "^1.0.2",
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
@@ -16,8 +19,10 @@
     "express-validator": "^6.9.2",
     "http-errors": "~1.6.3",
     "i18n": "^0.13.2",
+    "jimp": "^0.16.1",
     "mongoose": "^5.12.7",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
