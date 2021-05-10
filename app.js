@@ -25,24 +25,28 @@ app.use(cookieParser()); // Middleware
 app.use(express.static(path.join(__dirname, 'public'))); // public is the only folder accesible for downloads
 
 //API ROUTES
-app.use('/api/anuncios', require('./routes/api/anuncios'));
+app.use('/api/anuncios', require('./routes/api/anuncios.js'));
 
 // i18n SETUP
 const i18n = require('./lib/i18n.js');
 app.use(i18n.init);
 
 //WebSite ROUTES
-app.use('/prueba', function(req,res, next){
+app.use('/prueba', function(req, res, next){
   console.log('recibo una petición a ', req.originalUrl); 
   next();
 });
 
 app.use('/', require('./routes/index')); // Main page
 app.use('/imagenes', require('./routes/imagenes')); // Images of the anuncios
-app.use('/installdb', require('./public/javascripts/installdb')); // DB initialization
+app.use('/installdb', require('./public/javascripts/installdb')); // DB advertisments initialization
+//app.use('./initdbusers', require('./public/javascripts/initdbusers.js')); // DB users initialization
 app.use('/change-locale', require('./routes/change-locale.js')); // Languague selection routes - PLACE ALWAYS AFTER cookieparser
 app.use('/thumbnail', require('./routes/thumbnail.js')); // Thumbnail creator
-app.use('/nuevoanuncio', require('./routes/nuevoanuncio'));
+app.use('/nuevoanuncio', require('./routes/nuevoanuncio.js'));
+app.get('login', require('./controllers/loginController.js').index);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

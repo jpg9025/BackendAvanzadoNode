@@ -15,7 +15,8 @@
 	"Mobile": "Mobile",
 	"Work": "Work",
 	"Price of the item": "Price of the item",
-	"Are you selling(select it) of buying(do not select it)": "Are you selling(select it) of buying(do not select it)",
+	"Are you selling(select it) or buying(do not select it)": "Are you selling(select it) or buying(do not select it)",
 	"Location of the item": "Location of the item",
-	"Select the file": "Select the file"
+	"Select the file": "Select the file",
+	"Are you selling(select it) of buying(do not select it)": "Are you selling(select it) of buying(do not select it)"
 }

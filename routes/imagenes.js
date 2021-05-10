@@ -2,7 +2,7 @@ var express = require('express');
 const { FailedDependency } = require('http-errors');
 var router = express.Router();
 const { query, validationResult } = require('express-validator');
-const Anuncio = require('./../models/Anuncio.js');
+const Anuncio = require('../models/Anuncio.js');
 
 /* GET home page. */
 router.get('/:image?', async (req, res, next) => {

@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
-        <link rel='stylesheet' href='stylesheets/style.css'/>
+        <link rel='stylesheet' href='../public/stylesheets/style.css'/>
     </head>
     <body>
         <% include cabecera.html %>
 
-        <form class="form-wrapper" enctype="multipar/form-data" method="POST">
+        <form class="form-wrapper" action="/api/anuncios" enctype="multipar/form-data" method="POST">
             <div class="form-option">
                 <label for="name">
                     <%=__('Name of the item')%>
@@ -28,7 +28,7 @@
                 <label for="sale">
                     <%=__('Are you selling(select it) of buying(do not select it)')%>
                 </label>
-                <input name="sale" type="radio">
+                <input name="sale" type="checkbox" checked="true">
             </div>
             
             <div class="form-option">
@@ -54,11 +54,11 @@
                 <label for="photo">
                     <%=__('Select the file')%>
                 </label>
-                <input name="photo" type="file" accept="image/*">
+                <input id="photo" name="photo" type="file">
             </div>
 
             <div class="form-submit">
-                <input type="submit" value="submit">
+                <button type="submit">Submit</button>
             </div>
 
         </form>
