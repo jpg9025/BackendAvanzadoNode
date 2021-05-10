@@ -3,14 +3,16 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const session = require('express-session');
 var logger = require('morgan');
 const { fdatasync } = require('fs');
+const MongoStore = require('connect-mongo')
 
 // create an express aplication, which is exported at the end of the doc.
 var app = express();
 
 // create a connection with the data base
-require('./lib/connectMongoose');
+require('./models/connectMongoose');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); // path.join __dirname (/unix and \windows for forlders)
@@ -31,6 +33,21 @@ app.use('/api/anuncios', require('./routes/api/anuncios.js'));
 const i18n = require('./lib/i18n.js');
 app.use(i18n.init);
 
+// website sessions Middleware
+app.use(session({
+  name: 'nodeapi-session',
+  secret: '6098fe0f16a50b4c39d77ed4',
+  saveUninitialized: true,
+  resave: false,
+  cookie: {
+    secure: process.env.NODE_ENV !== 'development', // solo se envian al servidor cuando la petición es HTTPS
+    maxAge: 1000 * 60 * 60 * 24 * 2 // 2 días de inactividad
+  },
+  store: MongoStore.create({ mongoUrl: 'mongodb://localhost/cursonode' })
+}));
+
+
+
 //WebSite ROUTES
 app.use('/prueba', function(req, res, next){
   console.log('recibo una petición a ', req.originalUrl); 
@@ -44,7 +61,9 @@ app.use('/installdb', require('./public/javascripts/installdb')); // DB advertis
 app.use('/change-locale', require('./routes/change-locale.js')); // Languague selection routes - PLACE ALWAYS AFTER cookieparser
 app.use('/thumbnail', require('./routes/thumbnail.js')); // Thumbnail creator
 app.use('/nuevoanuncio', require('./routes/nuevoanuncio.js'));
-app.get('login', require('./controllers/loginController.js').index);
+app.get('/login', require('./controllers/loginController.js').index);
+app.post('/login', require('./controllers/loginController.js').post);
+app.use('/users', require('./routes/users'));
 
 
 

@@ -1,6 +1,6 @@
 'use strict';
 
-const mongoose = require('../../lib/connectMongoose.js');
+const mongoose = require('../../models/connectMongoose.js');
 const Usuario = require('../../models/Users.js');
 
 const router = require('../../routes/index.js');

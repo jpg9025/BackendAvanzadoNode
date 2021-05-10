@@ -7,6 +7,7 @@ var path = require('path');
 
 const Anuncio = require('../../models/Anuncio.js');
 const { FONT_SANS_10_BLACK } = require('jimp');
+const { parse } = require('path');
 
 /* Multer */
 var storage = multer.diskStorage({
@@ -82,17 +83,18 @@ router.post('/', async (req, res, next) => {
     console.log(req.body);
     
     try {
-        /*var object = {
+        var object = {
             name: req.body.name,
-            price: req.body.price,
+            price: parseInt(req.body.price),
             tags: req.body.tags,
             sale: req.body.sale,
             location: req.body.location,
             photo: req.body.photo // To save the file name into DB
         }
-        const anuncio = new Anuncio(object);*/
-        const anuncioData = req.body;
-        const anuncio = new Anuncio(anuncioData);
+        const file = req.file;
+        const anuncio = new Anuncio(object, file);
+        //const anuncioData = req.body;
+        //const anuncio = new Anuncio(anuncioData);
         await anuncio.onsale();
         const createdAnuncio = await anuncio.save();
     

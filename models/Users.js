@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+// For filter in loginController using email. Email must have an index (unique) in the model
 const usuarioSchema = mongoose.Schema({
     email: { type: String, unique: true },
     password: String
