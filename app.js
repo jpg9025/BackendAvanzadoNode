@@ -35,13 +35,14 @@ app.use(i18n.init);
 
 // website sessions Middleware
 app.use(session({
-  name: 'nodeapi-session',
-  secret: '6098fe0f16a50b4c39d77ed4',
+  name: 'expresspop-session', // cookie name
+  secret: '6098fe0f16a50b4c39d77ed4', // to generate token of session
   saveUninitialized: true,
-  resave: false,
+  resave: false, 
   cookie: {
-    secure: process.env.NODE_ENV !== 'development', // solo se envian al servidor cuando la petición es HTTPS
-    maxAge: 1000 * 60 * 60 * 24 * 2 // 2 días de inactividad
+    //secure: true, // browser only made HTTPS requests
+    //secure: process.env.NODE_ENV !== 'development',
+    maxAge: 1000 * 60 * 60 * 24 * 2 // 2 days of cookie duration (time in ms)
   },
   store: MongoStore.create({ mongoUrl: 'mongodb://localhost/cursonode' })
 }));
@@ -63,6 +64,7 @@ app.use('/thumbnail', require('./routes/thumbnail.js')); // Thumbnail creator
 app.use('/nuevoanuncio', require('./routes/nuevoanuncio.js'));
 app.get('/login', require('./controllers/loginController.js').index);
 app.post('/login', require('./controllers/loginController.js').post);
+app.get('/privado', require('./controllers/priveteController.js').index);
 app.use('/users', require('./routes/users'));
 
 

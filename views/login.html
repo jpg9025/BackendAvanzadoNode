@@ -1,14 +1,25 @@
-<% include cabecera.html %>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= title %></title>
+        <link rel='stylesheet' href='stylesheets/style.css'/>
+    </head>
+    <body>
+        <% include cabecera.html %>
 
-<form method="POST" class="login-form">
-    <div class="login-form-field">
-        <label for="email">Email</label>
-        <input type="email" name="email" value="<%= email %>">
-    </div>
-    <div class="login-form-field">
-        <label for="password">Password</label>
-        <input type="password" name="password">
-    </div>
-    <button type="submit">Submit</button>
+        <form method="POST" class="login-form">
+            <div class="login-form-field">
+                <label for="email"><%=__('Email')%></label>
+                <input type="email" name="email" value="<%= email %>">
+            </div>
+            <div class="login-form-field">
+                <label for="password"><%=__('Password')%></label>
+                <input type="password" name="password">
+            </div>
+            <button type="submit">Submit</button>
 
-</form>
+        </form>
+    </body>
+</html>

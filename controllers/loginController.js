@@ -21,13 +21,18 @@ class LoginController {
             const usuario = await Usuario.findOne({email})
 
             // User not found or bad password
-            if(!usuario || usuario.password !== password) {
+            if(!usuario || !(await usuario.comparePassword(password)) ) {
                 res.locals.email = email; // TODO include in the view
                 res.locals.error='Invalid credentials';
                 res.render('login');
                 return;
             }
 
+            // If user exist and passwords match, include in user session user_id
+            req.session.userLogged = {
+                _id: usuario._id
+            };
+            console.log('primavera rastrera');
             // User found and right password
             res.redirect('/privado');
             
