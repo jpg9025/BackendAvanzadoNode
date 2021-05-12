@@ -11,6 +11,15 @@
             <div class="language-options"><a href='/change-locale/<%= locale %>' ><%= locale %></a></div>
         <%}) %>
         </div>
+
+        <!--<% if (!session.userLogged) { %>
+            <div class="login-button"><a href="./login"><%= __('Login') %></a></div>
+        <% } else { %>
+            <div class="login-button"><a href="/logout"><%= __('Logout') %></a></div>
+        <% } %>-->
+
+        <div class="login-button"><a href="./login"><%= __('Login') %></a></div>
+        
     </header>
 </html>
 

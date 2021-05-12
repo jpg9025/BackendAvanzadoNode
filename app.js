@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 const session = require('express-session');
 var logger = require('morgan');
 const { fdatasync } = require('fs');
-const MongoStore = require('connect-mongo')
+const MongoStore = require('connect-mongo');
+const sessionAuth = require('./lib/sessionAuthMiddelware.js');
 
 // create an express aplication, which is exported at the end of the doc.
 var app = express();
@@ -41,20 +42,19 @@ app.use(session({
   resave: false, 
   cookie: {
     //secure: true, // browser only made HTTPS requests
-    //secure: process.env.NODE_ENV !== 'development',
+    secure: process.env.NODE_ENV !== 'development',
     maxAge: 1000 * 60 * 60 * 24 * 2 // 2 days of cookie duration (time in ms)
   },
   store: MongoStore.create({ mongoUrl: 'mongodb://localhost/cursonode' })
 }));
 
-
+// Session available on all views
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+})
 
 //WebSite ROUTES
-app.use('/prueba', function(req, res, next){
-  console.log('recibo una petición a ', req.originalUrl); 
-  next();
-});
-
 app.use('/', require('./routes/index')); // Main page
 app.use('/imagenes', require('./routes/imagenes')); // Images of the anuncios
 app.use('/installdb', require('./public/javascripts/installdb')); // DB advertisments initialization
@@ -64,9 +64,8 @@ app.use('/thumbnail', require('./routes/thumbnail.js')); // Thumbnail creator
 app.use('/nuevoanuncio', require('./routes/nuevoanuncio.js'));
 app.get('/login', require('./controllers/loginController.js').index);
 app.post('/login', require('./controllers/loginController.js').post);
-app.get('/privado', require('./controllers/priveteController.js').index);
-app.use('/users', require('./routes/users'));
-
+app.get('/loguot', require('./controllers/loginController.js').logout);
+//app.get('/privado', sessionAuth, require('./controllers/priveteController.js').index);
 
 
 // catch 404 and forward to error handler

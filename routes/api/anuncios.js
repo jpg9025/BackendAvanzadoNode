@@ -23,6 +23,7 @@ var storage = multer.diskStorage({
 
 /* GET /api/anuncios */
 router.get('/', function (req, res, next) { 
+    
     Anuncio.find({} , async (error) => {
         try {
             const name = req.query.name; // req.query catch information received in url 
