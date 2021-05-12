@@ -15,8 +15,6 @@ class LoginController {
     async post(req, res, next) {
         try {
             const { email, password } = req.body;
-            console.log(email, password);
-            console.log(req.session);
 
             // Search user in DB
             // For filter using email. Email must have an index (unique: true) in the model (users.js)
@@ -42,6 +40,9 @@ class LoginController {
                 _id: usuario._id
             };
            
+            //Send the token with the answer
+            res.send(token);
+
             // User found and right password
             res.redirect('/api/anuncios');
             

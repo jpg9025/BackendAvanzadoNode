@@ -1,13 +1,15 @@
 var express = require('express');
 const { NotExtended } = require('http-errors');
-const { render } = require('../../app.js');
+const { render, locals } = require('../../app.js');
 var router = express.Router();
 var multer = require('multer');
 var path = require('path');
+const jwt = require('jsonwebtoken');
 
 const Anuncio = require('../../models/Anuncio.js');
 const { FONT_SANS_10_BLACK } = require('jimp');
 const { parse } = require('path');
+const Usuario = require('../../models/Users.js');
 
 /* Multer */
 var storage = multer.diskStorage({
@@ -21,9 +23,29 @@ var storage = multer.diskStorage({
     }
 });
 
+/* Token */
+/*const token = localStorage.getItem('token');
+*/
+
 /* GET /api/anuncios */
-router.get('/', function (req, res, next) { 
-    
+router.get('/', /*token, */function (req, res, next) { 
+    /*if(!token) {
+        res.status(401).send({
+          error: "Authorization token is required"
+        })
+        return;
+    }
+    token = token.replace('Bearer ', '');
+
+    jwt.verify(token, 'Secret Password', function(error, decoded) {
+      if (error) {
+        res.status(401).send({
+          error: 'Invalid token, your token has expired'
+        })
+      } else {
+          Anuncio.find(....) // include all the code bellow
+    } */
+
     Anuncio.find({} , async (error) => {
         try {
             const name = req.query.name; // req.query catch information received in url 
